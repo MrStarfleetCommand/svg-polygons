@@ -1,0 +1,11 @@
+pre{
+	background: #e0e0e0;
+	border: thin solid #c0c0c0;
+	border-radius: 3px;
+	padding: 0 5px;
+	overflow: auto;
+	display: inline-block;
+}
+#button:hover{
+	cursor: pointer;
+}
