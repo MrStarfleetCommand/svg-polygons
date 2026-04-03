@@ -9,7 +9,6 @@
 		const number = document.querySelector('#number').value;
 		const step = Math.PI / number * 2;
 		const points = [];
-		const transformation = !(number % 2) ? ` transform="rotate(${360 / number / 2} ${r} ${r})"` : '';
 		const h2 = document.createElement('h2');
 		const div = document.createElement('div');
 		const pre = document.createElement('pre');
@@ -22,7 +21,7 @@
 
 		const svg = `<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${r * 2}" height="${r * 2}">
-	<path d="M ${points.join(' ')} Z"${transformation}/>
+	<path d="M ${points.join(' ')} Z"/>
 </svg>`;
 
 		h2.innerHTML = `Sides: ${number}`;
