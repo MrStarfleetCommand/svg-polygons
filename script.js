@@ -14,14 +14,14 @@
 		const pre = document.createElement('pre');
 
 		for (let angle = Math.PI / 2; angle < limit; angle += step){
-			const x = radius * (Math.cos(angle) + 1);
-			const y = radius * (Math.sin(angle) + 1);
+			const x = radius * (Math.cos(angle) + 1) - points.at(-2);
+			const y = radius * (Math.sin(angle) + 1) - points.at(-1);
 			points.push(x.toFixed(3), y.toFixed(3));
 		}
 
 		const svg = `<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${radius * 2}" height="${radius * 2}">
-	<path d="M ${points.join(' ')} Z"/>
+	<path d="m ${points.join(' ')} z" fill="#ff0000"/>
 </svg>`;
 
 		h2.innerHTML = `Sides: ${sides}`;
