@@ -12,13 +12,17 @@
 		const h2 = document.createElement('h2');
 		const div = document.createElement('div');
 		const pre = document.createElement('pre');
-		let x = 0;
-		let y = 0;
+		let xOffset = 0;
+		let yOffest = 0;
 
 		for (let angle = Math.PI / 2; angle < limit; angle += step){
-			x += radius * (Math.cos(angle) + 1);
-			y += radius * (Math.sin(angle) + 1);
-			points.push(x.toFixed(3), y.toFixed(3));
+			const xAbsolute = radius * (Math.cos(angle) + 1);
+			const yAbsolute = radius * (Math.sin(angle) + 1);
+			const xRelative = xAbsolute - xOffset;
+			const yRelative = yAbsolute - yOffest;
+			xOffset = xAbsolute;
+			yOffest = yAbsolute;
+			points.push(xRelative.toFixed(3), yRelative.toFixed(3));
 		}
 
 		const svg = `<?xml version="1.0" encoding="utf-8"?>
