@@ -12,10 +12,12 @@
 		const h2 = document.createElement('h2');
 		const div = document.createElement('div');
 		const pre = document.createElement('pre');
+		let x = 0;
+		let y = 0;
 
 		for (let angle = Math.PI / 2; angle < limit; angle += step){
-			const x = radius * (Math.cos(angle) + 1) - (points.at(-2) || 0);
-			const y = radius * (Math.sin(angle) + 1) - (points.at(-1) || 0);
+			x += radius * (Math.cos(angle) + 1);
+			y += radius * (Math.sin(angle) + 1);
 			points.push(x.toFixed(3), y.toFixed(3));
 		}
 
