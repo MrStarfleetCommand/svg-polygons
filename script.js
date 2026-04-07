@@ -14,8 +14,8 @@
 		const pre = document.createElement('pre');
 
 		for (let angle = Math.PI / 2; angle < limit; angle += step){
-			const x = radius * (Math.cos(angle) + 1) - points.at(-2);
-			const y = radius * (Math.sin(angle) + 1) - points.at(-1);
+			const x = radius * (Math.cos(angle) + 1) - Number(points.at(-2));
+			const y = radius * (Math.sin(angle) + 1) - Number(points.at(-1));
 			points.push(x.toFixed(3), y.toFixed(3));
 		}
 
