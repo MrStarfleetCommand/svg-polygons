@@ -2,11 +2,13 @@
 	const form = document.querySelector('form');
 	const limit = 2.9 * Math.PI;
 
-	form.onsubmit = event => {
+	form.addEventListener('submit', event => {
 		event.preventDefault();
 
-		const sides = document.querySelector('#sides').value;
-		const radius = document.querySelector('#radius').value;
+		const formData = new FormData(form);
+		const sides = formData.get('sides');
+		const radius = formData.get('radius');
+		const decimalPlaces = formData.get('decimal-places');
 		const step = Math.PI / sides * 2;
 		const points = [];
 		const h2 = document.createElement('h2');
@@ -22,7 +24,7 @@
 			const yRelative = yAbsolute - yOffest;
 			xOffset = xAbsolute;
 			yOffest = yAbsolute;
-			points.push(xRelative.toFixed(3), yRelative.toFixed(3));
+			points.push(xRelative.toFixed(decimalPlaces), yRelative.toFixed(decimalPlaces));
 		}
 
 		const svg = `<?xml version="1.0" encoding="utf-8"?>
@@ -37,5 +39,5 @@
 		form.after(pre);
 		form.after(div);
 		form.after(h2);
-	}
+	});
 })();
